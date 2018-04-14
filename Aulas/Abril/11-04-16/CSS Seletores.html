@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />	
+		<title>CSS Seletores</title>
+		<style>
+			li {
+				border: 1px solid black;
+				padding: 10px;
+				width: 150px;
+			}
+			nav > ul > li{
+				background-color: blue;
+				color: white;
+				}
+			ul > li {
+				margin: 3px;
+				font-size: 0.8em;
+				background-color: lightgreen;
+				color: green;
+			} 
+			ol > li{
+				background-color: yellow;
+				color: brown;
+			}
+			a {
+				color:red;
+				font-weight:bold;
+				text-decoration:none;
+			}
+			a:hover{
+				text-decoration:underline;
+			}
+			nav a {
+				color:white;
+			}
+			.atual{
+				background-color: darkblue;
+			}
+			li.atual + li{
+				background-color:lightblue;
+				color:darkblue;
+			}
+			ol > li:nth-child(even) {
+				background-color: tan;
+			}
+			nav {
+				font-family: Arial;
+				font-size:0.7em;
+			}
+			
+		</style>
+	</head>
+	<body>
+	<h1>Seletores</h1>
+		<nav>
+			<ul>
+				<li class="atual"><a href="frutas.html">Frutas</a></li>
+				<li><a href="vegetais.html">Vegetais</a></li>
+				<li><a href="figuras.html">Figuras</a></li>
+			</ul>
+		</nav>
+			<ul>
+				<li>Pera</li>
+				<li>Uva</li>
+				<li>Maçã</li>
+			</ul>
+			<ol>
+				<li>Pique as peras</li>
+				<li>Acrescente as uvas</li>
+				<li>Descasque e corte as maçãs</li>
+				<li>Junte e sirva todos os ingredientes</li>
+			</ol>
+			<p>Siga essa receita em <a href="http://youtube.com.br">nosso canal do Youtube!</a>
+	</body>
+</html>

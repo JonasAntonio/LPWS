@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Java Script DOM</title>
+		<style>
+			div {
+				border: 1px solid black;
+			}
+			#tela {
+				height: 300px;
+				width: 300px;
+				position: relative;
+			}
+			#alvo{
+				position: absolute;
+				top: 90px;
+				left: 0px;
+				width: 30px;
+				height: 30px;
+				background-color: red;
+			}
+		</style>
+	</head>	
+	<body>
+		<h1>Java Script DOM</h1>
+		<div id="tela">
+			<div id="alvo">
+			
+			</div>
+		</div>
+		<div>
+		<var id="x">0</var>
+		</div>
+		<button id="cima">Cima</button>
+		<button id="baixo">Baixo</button>
+		<button id="diminui">Esquerda</button>
+		<button id="aumenta">Direita</button>
+		<ul></ul>
+		<script>
+			var valorX = 0;
+			var valorY = 0;
+			var elementoX = document.getElementById("x");
+			var botaoAumenta = document.getElementById("aumenta");
+			var botaoDiminui = document.getElementById("diminui");
+			var botaoCima = document.getElementById("cima");
+			var botaoBaixo = document.getElementById("baixo");
+			var elementoAlvo = document.getElementById("alvo");
+			
+			botaoCima.addEventListener("click", function(){
+				elementoX.innerText = --valorY;
+				elementoAlvo.style.top = valorY*30+"px";
+			});
+			botaoBaixo.addEventListener("click", function(){
+				elementoX.innerText = ++valorY;
+				elementoAlvo.style.top = valorY*30+"px";
+			});
+			botaoAumenta.addEventListener("click", function(){
+				elementoX.innerText = ++valorX;
+				elementoAlvo.style.left = valorX*30+"px";
+			});
+			botaoDiminui.addEventListener("click", function(){
+				elementoX.innerText = --valorX;
+				elementoAlvo.style.left = valorX*30+"px";
+			});
+
+		</script>
+	</body>
+</html>

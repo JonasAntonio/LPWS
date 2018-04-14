@@ -1,0 +1,12 @@
+	html{
+		background-color:teal
+	}
+		body {
+			width: 350px;
+			background-color: green;
+			font-family: sans-serif;
+			border: 1px solid black;
+			margin: auto;
+			padding: 20px;
+			}
+	

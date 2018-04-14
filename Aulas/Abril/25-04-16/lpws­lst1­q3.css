@@ -1,0 +1,39 @@
+.modelo {
+	border:1px;
+	border-color:gray;
+	border-style:dotted;
+	padding:0;
+	margin:0;
+	text-align:center;
+}
+#a {
+	background-color:#FA8072;
+	width:1024px;
+	height:110px;
+}
+#b {
+	background-color:lightgreen;
+	width:120px;
+	height:400px;
+	float:left;
+}
+#c {
+	background-color:lightblue;
+	width:862px;
+	height:400px;
+	
+}
+#d {
+	background-color:lightyellow;
+	width:170px;
+	height:400px;
+	position:absolute;
+	left:862px;
+	top:120px;
+}
+#e {
+	background-color:lightgray;
+	width:1024px;
+	height:110px;
+	float:none;
+}

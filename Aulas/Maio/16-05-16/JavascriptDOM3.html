@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />	
+		<title>JavaScript DOM 3</title>
+		<style>
+			var {
+				background-color:lightgreen;
+				padding:2px;
+				min-width:4em;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>JavaScript DOM 3</h1>
+		<p>Se chapeuzinho vermelho tem uma cesta que carrega <var contenteditable>20</var> doces, se ela levar <var contenteditable>2</var> cestas mais <var contenteditable>5</var> doces nos bolsos, ela terá <var>?</var> doces.</p>
+		<button>Calcular</button>
+		
+		<script>
+			var botaoCalcular = document.getElementsByTagName('button')[0];
+			var doces = document.getElementsByTagName('var')[0];
+			var cestas = document.getElementsByTagName('var')[1];
+			var bolsos = document.getElementsByTagName('var')[2];
+			var total = document.getElementsByTagName('var')[3];
+			botaoCalcular.addEventListener('click', function (){
+				console.log("Calculando...");
+				total.innerText = parseInt(doces.innerText) * parseInt(cestas.innerText) + parseInt(bolsos.innerText);
+			});
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,26 @@
+body{
+	border-width:1024px;
+	margin: auto;
+}
+.modelo {
+	border:1px;
+	border-color:gray;
+	border-style:dotted;
+	margin:0;
+	padding:0;
+}
+#a {
+	background-color:#FA8072;
+}
+#b {
+	background-color:lightgreen;
+}
+#c {
+	background-color:lightblue;
+}
+#d {
+	background-color:lightyellow;
+}
+#e {
+	background-color:lightgray;
+}

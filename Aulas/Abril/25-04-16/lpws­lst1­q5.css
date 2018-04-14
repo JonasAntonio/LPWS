@@ -1,0 +1,45 @@
+.modelo {
+	border:1px;
+	border-color:gray;
+	border-style:dotted;
+	padding:0;
+	margin:0;
+	text-align:center;
+	
+}
+#a {
+	background-color:#FA8072;
+	width:1024px;
+	height:110px;
+}
+#b {
+	background-color:lightgreen;
+	width:342px;
+	height:110px;
+	position:absolute;
+	top:522px;
+
+}
+#c {
+	background-color:lightblue;
+	width:1024px;
+	height:400px;
+
+}
+#d {
+	background-color:lightyellow;
+	width:341px;
+	height:110px;
+	float:both;
+	position:absolute;
+	left:349px;
+}
+#e {
+	background-color:lightgray;
+	width:341px;
+	height:110px;
+	float:right;
+	position:fixed;
+	top:522px;
+	left:691px;
+}

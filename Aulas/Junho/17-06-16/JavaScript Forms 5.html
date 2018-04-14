@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />	
+		<title>JavaScript Forms 5</title>
+		<style type="text/css">
+			#desafio, #resposta-desafio{
+				width: 400px;
+				margin: auto;
+				border: 1px solid black;
+				font-size: 3em;
+				font-family: "Helvetica",sans-serif;
+				text-align: center;
+			}
+			#desafio div{
+				display: inline-block;
+				width: 33%;
+			}
+			#desafio div#operacao{
+				width: 5%;
+			}
+			input{
+				font-size: 0.7em;
+				width: 95%;
+				margin: 2px;
+				text-align: center;
+			}
+			#resultado, #resposta{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>JavaScript Forms 5</h1>
+		<div id="desafio">
+			<div id="numero1">2</div>
+			<div id="operacao">*</div>
+			<div id="numero2">3</div>
+		</div>	
+		<div id="resposta-desafio">
+			<div id="resultado">Resposta Correta!</div>
+			<div id="resposta">6</div>
+		
+		<form name="entrada">
+			<input type="number" name="resposta" placeholder="Digite aqui sua resposta"/>
+		</form>
+		<button id="sorteia">Sorteia</button>
+		<button id="confere">Confere</button>
+
+		</div>
+		<script>
+			//captura elementos do documento HTML
+			var ENumero1=document.getElementById("numero1");
+			var ENumero2=document.getElementById("numero2");
+			var EOperacao=document.getElementById("operacao");
+			var EResposta=document.getElementById("resposta");
+			var EResultado=document.getElementById("resultado");
+			var EInputResposta=document.entrada.resposta;
+			var EConfere=document.getElementById("confere");
+			EConfere.addEventListener("click",ConfereResposta);
+			var ESorteia=document.getElementById("sorteia");
+			ESorteia.addEventListener("click",Sorteia);
+
+			Sorteia();
+
+			function ConfereResposta(){
+				//Obtem dados do documento
+				var numero1=parseInt(ENumero1.innerText);
+				var numero2=parseInt(ENumero2.innerText);
+				var respostaFornecida=parseInt(EInputResposta.value);
+
+				//faz operações necessárias
+				var respostaCerta=numero1*numero2;
+				var estaCerta=(respostaFornecida==respostaCerta);
+
+				//Mostrar o resultado
+				EResposta.innerText=respostaCerta;
+				EResposta.style.display="block";
+				EResultado.style.display="block";
+				if(estaCerta){
+					EResultado.innerText="Resposta correta!";
+				}else{
+					EResultado.innerText="Resposta errada!";	
+				}
+				setTimeout(Sorteia,5*1000);
+			}
+			function Sorteia(){
+				EResposta.style.display="";
+				EResultado.style.display="";
+				EInputResposta.value="";
+				ENumero1.innerText=Math.round(Math.random()*100);
+				ENumero2.innerText=Math.round(Math.random()*100);
+				setTimeout(ConfereResposta,10*1000);
+			}
+
+		</script>
+	</body>
+</html>
