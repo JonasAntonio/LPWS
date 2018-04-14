@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />	
+		<title>Lista 5</title>
+	</head>
+	<body>
+		<h1>Exercício 3</h1>
+		<form name="lista">
+			<div>
+				<label>N1:<input type="number" name="n1" placeholder="Digite N1"/></label>
+			</div>
+			<div>
+				<label>N2:<input type="number" name="n2" placeholder="Digite N2"/></label>
+			</div>
+			<div>
+				<input type="submit"/>
+			</div>
+		</form>
+		<ul></ul>
+		<script>
+			document.addEventListener("submit",lista);
+			function lista(evento){
+				evento.preventDefault();
+				var i = 1;
+				for(i>=document.lista.n1.valueAsNumber;i<=document.lista.n2.valueAsNumber;i++){
+					var list = document.createElement("li");
+					list.innerText = i;
+					document.body.appendChild(list);
+				}
+			}
+		</script>
+	</body>
+</html>

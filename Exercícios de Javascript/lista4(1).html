@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />	
+		<title>Loja</title>
+		<style>
+			#mouse{
+				border:1px solid black;
+				width:70px;
+				height:auto;
+				text-align:center;
+				float:left;
+			}
+			#teclado{
+				border:1px solid black;
+				width:70px;
+				height:auto;
+				text-align:center;
+				float:left;
+			}
+			#headset{
+				border:1px solid black;
+				width:70px;
+				height:auto;
+				text-align:center;
+				float:left;
+			}
+			#botaomouse{
+				position:absolute;
+				left:15px;
+				top:130px;
+			}
+			#botaoteclado{
+				position:absolute;
+				left:85px;
+				top:130px;
+			}
+			#botaoheadset{
+				position:absolute;
+				left:160px;
+				top:130px;
+			}
+			#botaototal{
+				position:absolute;
+				left:77px;
+				top:160px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Loja</h1>
+		<h4 id="mouse">Mouse</h4>
+		<h4 id="teclado">Teclado</h4>
+		<h4 id="headset">Headset</h4>
+		
+		<div id="botaomouse">
+			<button>+</button>
+			<var>0</var>
+			<button>-</button>
+		</div>
+		
+		<div id="botaoteclado">
+			<button>+</button>
+			<var>0</var>
+			<button>-</button>
+		</div>
+		
+		<div id="botaoheadset">
+			<button>+</button>
+			<var>0</var>
+			<button>-</button>
+		</div>
+		
+		<div id="botaototal">
+		<button>Total</button>
+		<var>0</var>
+		</div>
+		
+		<script>
+			var botaoTotal = document.getElementsByTagName('buttom')[0];
+			var mouse = document.getElementsByTagName('var')[0];
+			var teclado = document.getElementsByTagName('var')[1];
+			var headset = document.getElementsByTagName('var')[2];
+			var total = document.getElementsByTagName('var')[3];
+			botaoTotal.addEventListener('click', function () {
+				total.innerText = parseInt(mouse.innerText)+parseInt(teclado.innerText)+parseInt(headset.innerText)
+			});
+			</script>
+	</body>
+</html>

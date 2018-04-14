@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />	
+		<title>Churrasco</title>
+		<link rel="stylesheet" type="text/css" href="Churrasco.css">
+	</head>
+	<body>
+		<h1>Lista do Churrasco</h1>
+		<div id="formulario">
+			<form name="churrasco">
+				<div id="divNome">
+					<label>Nome: <input type="text" name="digitarNome" placeholder="Digite o nome aqui" /></label>
+				</div>
+
+				<div id="divSexo">
+					Sexo: <label><input type="radio" name="selecionarSexo" value="1" />Masculino</label>
+					<label><input type="radio" name="selecionarSexo" value="2" />Feminino</label>
+				</div>
+
+				<div id="divEnviar">
+					<input type="submit"/>
+				</div>
+
+			</form>
+		</div>
+		<div id="divTabelas">
+			<table id="tM" border="1">
+				<thead>
+					<tr>
+						<td>Masculino</td>
+					</tr>
+				</thead>
+				<tbody id="tableMasc"></tbody>
+			</table>
+
+			<table id="tF" border="1">
+				<thead>
+					<tr>
+						<td>Feminino</td>
+					</tr>
+				</thead>
+				<tbody id="tableFem"></tbody>
+			</table>
+		</div>
+		<script type="text/javascript" src="Churrasco.js"></script>
+	</body>
+</html>

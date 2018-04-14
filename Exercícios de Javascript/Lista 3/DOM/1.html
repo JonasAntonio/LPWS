@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />	
+		<title>Lista 3</title>
+		<style>
+			li {
+				border: 1px solid black;
+				width:70px;
+				height:30px;
+				list-style: none;
+			}
+			#Somar{
+				border: 1px solid black;
+				width: 150px;
+				text-align: center;
+				float: left;
+			}
+			#Subtrair{
+				border: 1px solid black;
+				width: 150px;
+				text-align: center;
+				float: left;
+			}
+			#Multiplicar{
+				border: 1px solid black;
+				width: 150px;
+				text-align: center;
+				float: left;
+			}
+			#Dividir{
+				border: 1px solid black;
+				width: 150px;
+				text-align: center;
+				float: left;
+			}
+		</style>
+		</head>
+	<body>
+		<h1>Exercício 1</h1>
+		<div id = "Somar">
+			<h2>Soma</h2>
+			<ul id="soma"></ul>
+		</div>
+		<div id = "Subtrair">
+			<h2>Subtração</h2>
+			<ul id="subtração"></ul>
+		</div>
+		<div id="Multiplicar">
+			<h2>Multiplicação</h2>
+			<ul id="multiplicacao"></ul>
+		</div>
+		<div id="Dividir">
+			<h2>Divisão</h2>
+			<ul id="divisao"></ul>
+		</div>
+		<script type="text/javascript">
+			//Soma
+			var ulSoma = document.getElementById("soma");
+			var numeroSoma = ulSoma;
+			var i;
+			for(i=0;i<=10;i++) {
+				var itemSoma = document.createElement("li");
+				itemSoma.innerText = ("7" + "+" + i + " = ") + (7 + i);
+				numeroSoma.appendChild(itemSoma);
+			}
+			//Subtração
+			var ulSub = document.getElementById("subtração");
+			var numeroSub = ulSub;
+			var j;
+			for(j=0;j<=10;j++) {
+				var itemSub = document.createElement("li");
+				itemSub.innerText = ("7" + "-" + j + " = ") + (7 - j);
+				numeroSub.appendChild(itemSub);
+			}
+			//Multiplicação
+			var ulMult = document.getElementById("multiplicacao");
+			var numeroMult = ulMult;
+			var k;
+			for(k=0;k<=10;k++) {
+				var itemMult = document.createElement("li");
+				itemMult.innerText = ("7" + "*" + k + " = ") + (7 * k);
+				numeroMult.appendChild(itemMult);
+			}
+			//Divisão
+			var ulDiv = document.getElementById("divisao");
+			var numeroDiv = ulDiv;
+			var l;
+			for(l=0;l<=10;l++) {
+				var itemDiv = document.createElement("li");
+				itemDiv.innerText = "7" + "/" + l;
+				numeroDiv.appendChild(itemDiv);
+			}
+		</script>
+	</body>
+</html>

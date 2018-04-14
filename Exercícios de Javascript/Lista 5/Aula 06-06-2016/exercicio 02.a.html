@@ -1,0 +1,53 @@
+<html>
+	<head>
+		<title>Java DOM4</title>
+		<meta charset="utf-8"/>
+		<style>
+			label {
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Exercício 02</h1>
+		<form name="calculo"> 
+			<label>1ª NOTA: <input type="number" name="n1" /></label>
+			<label>2ª NOTA: <input type="number" name="n2" /></label> 
+			<label>3ª NOTA: <input type="number" name="n3" /></label> 
+			<label>Trabalho: <input type="number" name="n4" onblur="calcular()" /></label> 
+			<label>Nº de Faltas: <input type="number" name="faltas" onblur="situacao()"/></label> 
+			<label>Media final<input type="number" name="md" disabled="true"></label>  
+
+		</form>
+
+		<div>
+			<p id="sit">Situação:</p>
+		</div>
+
+		<script>
+			var p1, p2, p3, p4, media, faltas; 
+			function calcular(){ 
+				p1 = document.calculo.n1.valueAsNumber; 
+				p2 = document.calculo.n2.valueAsNumber; 
+				p3 = document.calculo.n3.valueAsNumber; 
+				p4 = document.calculo.n4.valueAsNumber; 
+
+				media = (p1 + p2 + p3 + p4) / 4; 
+
+				document.calculo.md.value = media; 
+			} 
+
+			function situacao(){ 
+				faltas = document.calculo.faltas.valueAsNumber; 
+				if(faltas>15){
+					document.getElementById("sit").innerText += "Reprovado";
+				} else if (faltas<=15 && media<60){
+					document.getElementById("sit").innerText += "Prova Substitutiva";
+				} else if (faltas<=15 && media>=60){
+					document.getElementById("sit").innerText += "Aprovado";
+				}
+			} 
+			
+		</script>
+	</body>
+</html>

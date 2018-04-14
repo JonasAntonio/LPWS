@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />	
+		<title>Simulado 2</title>
+		<style>
+			#opcoes, #placar{
+				border:1px solid black;
+				width: 110px;
+				height: 100px;
+				text-align: center;
+			}
+			#opcoes{
+				float:left;
+			}
+			#placar{
+				float:left;
+			}
+			#tabela{
+				position: fixed;
+				top:120px;
+			}
+		</style>
+	</head>
+	<body>
+		<!--Opções-->
+		<div id="opcoes">
+			<form name="escolherJogada">
+				<div>
+					<label><input type="radio" name="jogada" id="pedra" value="1"/>Pedra</label>
+				</div>
+
+				<div>
+					<label><input type="radio" name="jogada" id="papel" value="2"/>Papel</label>
+				</div>
+
+				<div>
+					<label><input type="radio" name="jogada" id="tesoura" value="3"/>Tesoura</label>
+				</div>
+				<input type="submit"/>
+			</form>
+		</div>
+		<!--Placar-->
+		<div id="placar">
+			<label>Jogador:<p id="placarJogador">0</p></label>
+			<label>Computador:<p id="placarComputador">0</p></label>
+		</div>
+		<!--Rodadas-->
+		<div id="tabela">
+			<table name="tabela" border="1">
+				<thead>
+					<tr>
+						<td id="rodada">Rodada</td>
+						<td id="tJogador">Jogador</td>
+						<td id="tComputador">Computador</td>
+					</tr>
+				</thead>	
+			</table>
+		</div>
+
+		<script type="text/javascript">
+			var rodada = 1;
+var placarJogador = 0;
+var placarComputador = 0;
+
+document.escolherJogada.addEventListener("submit", jog);
+function jog(evento){
+	evento.preventDefault();
+	var jogadaJogador = document.escolherJogada.value;
+	var jogadaComputador = Math.floor(Math.random()*3+1);
+	var resultadoLinha;
+	var resultadoCelula;
+	var imprimirJ;
+	var imprimirC;
+
+	if(jogadaJogador == 1){
+		imprimirJ = "Pedra";
+		if(jogadaComputador == 1) {
+			imprimirC = "Pedra";
+		}else if(jogadaComputador == 2){
+			imprimirC = "Papel";
+			placarComputador++;
+		}else{
+			imprimirC = "Tesoura";
+			placarJogador++;
+		}
+	}
+	else if(jogadaJogador == 2){
+		imprimirJ = "Papel";
+		if(jogadaComputador == 1) {
+			imprimirC = "Pedra";
+			placarJogador++;
+		}else if(jogadaComputador == 2){
+			imprimirC = "Papel";
+		}else{
+			imprimirC = "Tesoura";
+			placarComputador++;
+		}
+	}
+	else if(jogadaJogador == 3){
+		imprimirJ = "Tesoura";
+		if(jogadaComputador == 1) {
+			imprimirC = "Pedra";
+			placarComputador++;
+		}else if(jogadaComputador == 2){
+			imprimirC = "Papel";
+			placarJogador++;
+		}else{
+			imprimirC = "Tesoura";
+		}
+	}
+	
+	resultadoLinha = document.createElement("tr");
+	resultadoLinha = setAttribute("id", "lin"+rodada);
+	document.getElementById("tabela").appendChild(resultadoLinha);
+
+	resultadoCelula = document.createElement("td");
+	resultadoCelula.innerText = rodada;
+	document.getElementById("lin"+rodada).appendChild(resultadoCelula);
+
+	resultadoCelula = document.createElement("td");
+	resultadoCelula.innerText = placarJogador;
+	document.getElementById("lin"+rodada).appendChild(resultadoCelula);
+
+	resultadoCelula = document.createElement("td");
+	resultadoCelula.innerText = placarComputador;
+	document.getElementById("lin"+rodada).appendChild(resultadoCelula);
+
+	document.getElementById("placarJogador").innerText = placarJogador;
+	document.getElementById("placarComputador").innerText = placarComputador;
+
+	rodada++;
+
+	if(placarJogador >= 5){
+		document.getElementById("placarJogador").innerText = "Vencedor";
+	}else if(placarComputador >= 5){
+		document.getElementById("placarComputador").innerText = "Vencedor";
+	}
+}
+		</script>
+	</body>
+</html>

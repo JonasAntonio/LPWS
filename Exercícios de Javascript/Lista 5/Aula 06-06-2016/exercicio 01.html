@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<title>Java DOM4</title>
+		<meta charset="utf-8"/>
+		<style>
+			label {
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Exercício 01</h1>
+		<form name="parametros">
+			<label>Salário: <input type="number" name="salario" placeholder="Digite o Salário Atual" /></label>
+			<label>Aumento: <input type="number" name="aumento" placeholder="Digite Porcentagem de Aumento" /></label>
+			<input type="submit"/>
+		</form>
+		<script>
+
+			document.parametros.addEventListener("submit", function(event) {
+				event.preventDefault();
+				var new_p = document.createElement('p');
+
+				new_p.innerText = (document.parametros.salario.valueAsNumber*((document.parametros.aumento.valueAsNumber+100) /100));
+				document.body.appendChild(new_p);
+			});
+
+		</script>
+	</body>
+</html>

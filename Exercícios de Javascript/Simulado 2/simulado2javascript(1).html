@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+
+	<style type="text/css">
+	body {
+		width: 600px;
+		height: 1200px;
+	}
+	div {
+		margin: 10px;
+		padding: 20px;
+		float: left;
+		font-family: sans-serif;
+		
+	}
+
+	#boxJogada, #boxPlacar {
+		width: 30%;
+		height: 175px;
+		font-size: 24px;
+		border: 1px solid black;
+	}
+
+	#boxRodadas {
+		width: 70%;
+		height: 175px;
+	}
+
+	table {
+		text-align: center;
+	}
+
+	</style>
+</head>
+<body>
+	<div class="box" id="boxJogada">
+		<form name="jogada">
+			<label><input type="radio" name="jogadaEscolhida" value="1">Pedra</label><br>
+			<label><input type="radio" name="jogadaEscolhida" value="2">Papel</label><br>
+			<label><input type="radio" name="jogadaEscolhida" value="3">Tesoura</label><br>
+			<input type="submit" name="enviarJogada">
+		</form>
+	</div>
+	<div class="box" id="boxPlacar">
+		<label>Jogador:</label><p id="placarJogador">0</p></label>
+		<label>Computador:<p id="placarComputador">0</p></label>
+	</div>
+	<div class="box" id="boxRodadas">
+		<table id="tabelaRodadas" border="1">
+			<tr>
+				<td>Rodada</td>
+				<td>Jogador</td>
+				<td>Computador</td>
+			</tr>
+		</table>
+	</div>
+	<script type="text/javascript">
+	var rodada = 1;
+	var placarJogador = 0;
+	var placarComputador = 0;
+
+	document.jogada.addEventListener("submit", pondera);
+	function pondera(evento){
+		evento.preventDefault();
+		var jogadaJ = document.jogada.jogadaEscolhida.value;
+		var jogadaC = Math.floor(Math.random()*3+1);
+		var resultadoLinha;
+		var resultadoData;
+		var printJogadaJ;
+		var printJogadaC;
+
+
+		if(jogadaJ == 1){
+			printJogadaJ = "Pedra";
+			if(jogadaC == 1){
+				printJogadaC = "Pedra";
+			}else if(jogadaC == 2){
+				printJogadaC = "Papel";
+				placarComputador++;
+			}else{
+				printJogadaC = "Tesoura";
+				placarJogador++;
+			}
+		}else if(jogadaJ == 2){
+			printJogadaJ = "Papel";
+			if(jogadaC == 1){
+				printJogadaC = "Pedra";
+				placarJogador++;
+			}else if(jogadaC == 2){
+				printJogadaC = "Papel";
+			}else{
+				printJogadaC = "Tesoura";
+				placarComputador++;
+			}
+		}else{
+			printJogadaJ = "Tesoura";
+			if(jogadaC == 1){
+				printJogadaC = "Pedra";
+				placarComputador++;
+			}else if(jogadaC == 2){
+				printJogadaC = "Papel";
+				placarJogador++;
+			}else{
+				printJogadaC = "Tesoura";
+			}
+		}
+
+		resultadoLinha = document.createElement("tr");
+		resultadoLinha.setAttribute("id", "lin"+rodada);
+		document.getElementById("tabelaRodadas").appendChild(resultadoLinha);
+
+		resultadoData = document.createElement("td");
+		resultadoData.innerText = rodada;
+		document.getElementById("lin"+rodada).appendChild(resultadoData);
+
+		resultadoData = document.createElement("td");
+		resultadoData.innerText = printJogadaJ;
+		document.getElementById("lin"+rodada).appendChild(resultadoData);
+
+		resultadoData = document.createElement("td");
+		resultadoData.innerText = printJogadaC;
+		document.getElementById("lin"+rodada).appendChild(resultadoData);
+
+		document.getElementById("placarJogador").innerText = placarJogador;
+		document.getElementById("placarComputador").innerText = placarComputador;
+
+
+		rodada++;
+
+		if(placarJogador >= 5){
+			document.getElementById("placarJogador").innerText = "VENCEU";
+			rodada = 1;
+			placarJogador = 0;
+			placarComputador = 0;
+		}else if(placarComputador >= 5){
+			document.getElementById("placarComputador").innerText = "VENCEU";
+			rodada = 1;
+			placarJogador = 0;
+			placarComputador = 0;
+		}
+
+		if(rodada >= 10){
+			document.getElementById("placarJogador").innerText = "EMPATE";
+			document.getElementById("placarComputador").innerText = "EMPATE";
+			rodada = 1;
+			placarJogador = 0;
+			placarComputador = 0;
+		}
+	}
+
+	</script>
+</body>
+</html>

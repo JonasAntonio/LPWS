@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Carrinho</title>
+		<link rel="stylesheet" type="text/css" href="carrinho.css">
+	</head>	
+	<body>
+
+		<div id="Carrinho">
+			<h1 id="car">Carrinho de Compras</h1>
+
+			<div id="Mouse">
+
+				<div id="imgMouse">
+					<img src="mouse.jpg"/>
+				</div>
+				<div id="mouse">
+					<h2>Mouse</h2>
+					<p>Preço inicial: R$: 100.00</p>
+					<p>Preço: R$: <var type="number" id="precoM">100</var>.00</p>
+					<button id="diminuiM">-</button>
+					<var id="x">0</var>
+					<button id="aumentaM">+</button>
+				</div>
+			</div>
+
+			<div id = "Teclado">
+
+				<div id="imgTeclado">
+					<img src="teclado.jpg">
+				</div>
+
+				<h2>Teclado</h2>
+				<p>Preço inicial: R$: 80.00</p>
+				<p>Preço: R$: <var type="number" id="precoT">80</var>.00</p>	
+				<button id = "diminuiT">-</button>
+				<var id = "y">0</var>
+				<button id = "aumentaT">+</button>
+			</div>
+
+			<div id = "Headset">
+
+				<div id="imgHeadset">
+					<img src="headset.jpg">
+				</div>
+
+				<h2>Headset</h2>
+				<p>Preço inicial: R$: 120.00</p>
+				<p>Preço: R$: <var type="number" id="precoH">120</var>.00</p>	
+				<button id = "diminuiH">-</button>
+				<var id = "z">0</var>
+				<button id = "aumentaH">+</button>
+			</div>
+		</div>
+			<div id="finalizarDiv">
+				<h2>Finalizar compra</h2>
+				<button id="finalizar">Finalizar</button>
+				<p>Total a pagar: R$: <var id="total">0</var>.00</p>
+			</div>
+		
+
+		<script type="text/javascript" src="carrinho.js"></script>
+
+	</body>
+</html>

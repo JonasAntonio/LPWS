@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />	
+		<title>Lista 5</title>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		<h1>Exercício 1</h1>
+		<form name="calcAumento">
+			<div id="Sal">
+				<label>Salário Atual:<input type="number" name="salario" placeholder="Salário atual"/></label>
+			</div>
+			<div id="porcent">
+				<label>Porcentagem:<input type="number" name="porcentagem" placeholder="Porcentagem de aumento"/></label>
+			</div>
+			<input type="submit"/>
+		</form>
+		<script>
+			document.addEventListener("submit",calcular);
+			function calcular(evento){
+				evento.preventDefault();
+				var calc = document.createElement("p");
+				var valor = (document.calcAumento.salario.valueAsNumber*((document.calcAumento.porcentagem.valueAsNumber+100)/100));
+				calc.innerText = ("Novo Salário: R$ ")+ valor;
+				document.body.appendChild(calc);
+
+				var aumento = document.createElement("p");
+				aumento.innerText = "Aumento: R$ " + (valor - document.calcAumento.salario.valueAsNumber);
+				document.body.appendChild(aumento);
+			}
+		</script>
+	</body>
+</html>

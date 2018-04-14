@@ -1,0 +1,42 @@
+	#Mouse{
+				border: 1px solid black;
+				width: 300px;
+				text-align: center;
+				float:left;
+				position: relative;
+				height: 461px;
+				margin:auto;
+			}
+			#Teclado{
+				border:1px solid black;
+				width: 300px;
+				text-align: center;
+				float: left;
+				position: relative;
+				
+			}
+			#Headset{
+				border:1px solid black;
+				width: 300px;
+				text-align: center;
+				float:left;
+				position: relative;
+				
+			}
+			#finalizarDiv{
+				border: 1px solid black;
+				width: 300px;
+				float: left;
+				position: fixed;
+				top:88px;
+				left: 914px;
+				text-align: center;
+			}
+			#Carrinho{
+				position: fixed;
+				left:;
+			}
+			
+			#car{
+				text-align: center;
+			}

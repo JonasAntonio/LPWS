@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+<style>
+</style>
+</head>
+<body>
+	<h1>Salário</h1>
+	<form name="salario">
+		<label>Salário:<input type="number" name="antigo" placeholder="Digite o salário aqui."></label>
+		<label>Ajuste:<input type="number" name="rate" placeholder="Digite a porcentagem de aumento.">%</label>
+		<input type="submit" name="calcular"/>
+	</form>
+
+	<h1>Notas de Aluno</h1>
+	<form name="notas">
+		<label>Nota 1:<input type="number" name="nota1" placeholder="Digite a nota aqui."></label>
+		<label>Nota 2:<input type="number" name="nota2" placeholder="Digite a nota aqui."></label>
+		<label>Nota 3:<input type="number" name="nota3" placeholder="Digite a nota aqui."></label>
+		<label>Faltas:<input type="number" name="faltas" placeholder="Digite o n. de faltas aqui."></label>
+		<input type="submit" name="calcularNota"/>
+	</form>
+
+	<h1>Lista de Numeros</h1>
+	<form name="nLista">
+		<label>Numero Inicial:<input type="number" name="numIni" placeholder="Digite o número aqui."></label>
+		<label>Numero Final:<input type="number" name="numFin" placeholder="Digite o número aqui."></label>
+		<input type="submit" name="printNum"/>
+	</form>
+<script>
+	document.salario.addEventListener("submit", calcular);
+
+	function calcular(event){
+		event.preventDefault();
+		var nSalario = document.createElement("p");
+		nSalario.innerText = parseInt(document.salario.antigo.value) + ((parseInt(document.salario.rate.value)/100)*parseInt(document.salario.antigo.value));
+		document.body.appendChild(nSalario);
+	}
+
+	document.notas.addEventListener("submit", calcularNota);
+
+	function calcularNota(event2){
+		event.preventDefault();
+		var aux1 = parseInt(document.notas.nota1.value);
+		var aux2 = parseInt(document.notas.nota2.value);
+		var aux3 = parseInt(document.notas.nota3.value);
+		var conta = (aux1 + aux2 + aux3) / 3;
+		var aux4 = parseInt(document.notas.faltas.value);
+
+		if(conta >= 60 && aux4 < 15){
+			var aprovacao = document.createElement("p");
+			aprovacao.innerText = "APROVADO";
+			document.body.appendChild(aprovacao);
+		}else{
+			var aprovacao = document.createElement("p");
+			aprovacao.innerText = "REPROVADO SEU MERDA";
+			document.body.appendChild(aprovacao);
+		}
+	}
+
+	function printNum(event3){
+		event.preventDefault();
+		var aux1 = parseInt(document.nLista.numIni.value);
+		var aux2 = parseInt(document.nLista.numFin.value);
+	}
+</script>
+</body>
+</html>

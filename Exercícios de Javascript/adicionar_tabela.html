@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />	
+		<title>Adicionar Tabela</title>
+	</head>
+	<body>
+		<h1>Adicionar Tabela</h1>
+		<button id="addTabela">Adicionar</button>
+		<table id="tabela" border="1">
+			<thead>
+				<tr>
+					<td>1</td>
+				</tr>
+			</thead>
+			<tbody id="tBody"></tbody>
+		</table>
+		
+		<script>
+			var tBody = document.getElementById("tBody");
+			var botaoAdicionar = document.getElementById("addTabela");
+			botaoAdicionar.addEventListener("click", adicionar);
+			function adicionar(evento){
+				evento.preventDefault();
+				var criarTr = document.createElement("tr");
+				var criarTd = document.createElement("td");
+				criarTd.innerText = "Novo Elemento";
+				criarTr.appendChild(criarTd);
+				tBody.appendChild(criarTr);
+			}
+		</script>
+	</body>
+</html>

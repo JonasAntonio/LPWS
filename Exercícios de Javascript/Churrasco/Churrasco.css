@@ -1,0 +1,26 @@
+form{
+				border: 1px solid black;
+				width: 250px;
+				height: 70px;
+				text-align: center;
+				margin: auto;
+				
+			}
+			table{
+				display: inline-block;
+				vertical-align: top;
+			}
+			#divSexo{
+				display: inline-block;
+			}
+			#divEnviar{
+				position: relative;
+				left: 80px;
+			}
+			#divTabelas{
+				border: 1px solid black;
+				width: 250px;
+				min-height: 10px;
+				text-align: center;
+				margin: auto;
+			}

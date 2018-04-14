@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<title>Questão 3</title>
+		<meta charset="utf-8"/>
+		<style>
+			div {
+				display: block;
+			}
+			fieldset {
+				width: 250px;
+				text-align: center;
+			}
+			
+		</style>
+	</head>
+	<body>
+	
+		<form name="intervalo"> 
+			<fieldset>
+				<legend>Questão 3</legend>
+				<div><label>Valor N1: <input type="number" name="n1" /></label></div>
+				<div><label>Valor N2: <input type="number" name="n2" /></label></div>
+				<div><input type="submit" id="numero"/></div>
+			</fieldset>
+		</form>
+		
+		<ul id="nLista">
+		</ul>
+
+		<script>
+
+			var lista = document.getElementById("nLista");
+
+			document.intervalo.addEventListener("submit", resultado);
+
+			function resultado(event){
+				event.preventDefault();
+				
+				var num1 = document.intervalo.n1.valueAsNumber;
+				var num2 = document.intervalo.n2.valueAsNumber;
+				var i;
+				for (i = num2; i >= num1; i--) {
+					var numLista = document.createElement("li");
+					numLista.innerText = i;
+					lista.appendChild(numLista);
+				}
+			}
+
+		</script>
+	</body>
+</html>

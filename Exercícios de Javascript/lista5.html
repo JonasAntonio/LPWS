@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />	
+		<title>Lista 5</title>
+		<style>
+			body>div{
+				text-align: center;
+			}
+			#FPorc{
+				border:1px solid black;
+				width: 200px;
+				height: 284px;
+				
+			}
+			#FNotas{
+				border:1px solid black;
+				width: 200px;
+				height: 284px;
+				
+			}
+			#FLista{
+				border:1px solid black;
+				width: 200px;
+				height: 284px;
+				
+			}
+			#FTabela{
+				border:1px solid black;
+				width: 200px;
+				height: 284px;
+				
+			}
+			#FMatriz{
+				border:1px solid black;
+				width: 200px;
+				height: 284px;
+				
+			}
+			p{
+				display: inline-block;
+				border:1px solid black;
+				width: 200px;
+
+			}
+
+		</style>
+	</head>
+	<body>
+
+		<div id="FPorc">
+			<h2>Exercício 1</h2>
+			<form name="calcAumento">
+				<div id="Sal">
+					<label>Salário Atual:<input type="number" name="salario" placeholder="Salário atual"/></label>
+				</div>
+				<div id="porcent">
+					<label>Porcentagem:<input type="number" name="porcentagem" placeholder="Porcentagem de aumento"/></label>
+				</div>
+				<input type="submit"/>
+			</form>
+		</div>
+
+		<div id="FNotas">
+			<h2>Exercício 2</h2>
+			<form name="notas">
+				<div>
+					<label>Faltas:<input type="number" name="faltas" placeholder="Faltas"/></label>
+				</div>
+				<div>
+					<label>1º Nota:<input type="number" name="nota1" placeholder="Nota 1"/></label>
+				</div>
+				<div>
+					<label>2º Nota:<input type="number" name="nota2" placeholder="Nota 2"/></label>
+				</div>
+				<div>
+					<label>3º Nota:<input type="number" name="nota3" placeholder="Nota 3"/></label>
+				</div>
+				<div>
+					<label>Trabalho:<input type="number" name="nota4" placeholder="Trabalho"/></label>
+				</div>
+				
+				<input type="submit"/>
+			</form>
+		</div>
+
+		<div id="FLista">
+		<h2>Exercício 3</h2>
+			<form name="listaUl">
+				<div>
+					<label>N1:<input type="number" name="n1" placeholder="Digite N1"/></label>
+				</div>
+				<div>
+					<label>N2:<input type="number" name="n2" placeholder="Digite N2"/></label>
+				</div>
+				<div>
+					<input type="submit" name="printUl"/>
+				</div>
+			</form>
+		</div>
+
+		<div id="FTabela"> 
+			<h2>Exercício 4</h2>
+		  	<form name="vetorXY">
+			    <label>	  <input type="text" name="x1" placeholder="Digite X1"/>
+			              <input type="text" name="x2" placeholder="Digite X2"/>
+			              <input type="text" name="x3" placeholder="Digite X3"/></label>
+
+			    <label>   <input type="text" name="y1" placeholder="Digite Y1" />
+			              <input type="text" name="y2" placeholder="Digite Y2"/>
+			              <input type="text" name="y3" placeholder="Digite Y3"/></label>
+			    <input type="submit" name="printT"/>
+		  	</form>
+		</div>
+
+		<div id="FMatriz">
+			<h2>Exercício 5</h2>
+		  		<form name="matriz">
+		    	<label>Tamanho da Matriz: <input type="number" name="mTamanho"/></label>
+		    	<input type="submit" name="printM"/>
+	  		</form>
+		</div>
+
+		<script>
+		//exercicio 1
+			document.addEventListener("submit",calcular);
+			function calcular(eventoE1){
+				eventoE1.preventDefault();
+				var calc = document.createElement("p");
+				calc.innerText = (document.calcAumento.salario.valueAsNumber*((document.calcAumento.porcentagem.valueAsNumber+100)/100));
+				document.body.appendChild(calc);
+			}
+			//exercicio 2
+			document.notas.addEventListener("submit",evento);
+			function evento(prev) {
+				prev.preventDefault();
+				var resultado = document.createElement("p");
+				if(document.notas.faltas.valueAsNumber <=15 && ((document.notas.nota1.valueAsNumber+document.notas.nota2.valueAsNumber+document.notas.nota3.valueAsNumber+document.notas.nota4.valueAsNumber)/4)<60)
+					resultado.innerText = "Prova Substitutiva"
+				else if(document.notas.faltas.valueAsNumber>15)
+					resultado.innerText = "Reprovado";
+				else if(document.notas.faltas.valueAsNumber <=15 && ((document.notas.nota1.valueAsNumber+document.notas.nota2.valueAsNumber+document.notas.nota3.valueAsNumber+document.notas.nota4.valueAsNumber)/4)>60)
+					resultado.innerText = "Aprovado"
+
+				document.body.appendChild(resultado);
+			}
+			//exercicio 3
+			document.addEventListener("submit",printUl);
+			function printUl(eventoE3){
+				eventoE3.preventDefault();
+				var num1=parseInt(document.listaUl.n1.value);
+				var num2=parseInt(document.listaUl.n2.value);
+				var lst = document.createElement("ul");
+				lst.setAttribute("id", "lista");
+				document.body.appendChild(lst);
+				var itens;
+				if(num1>num2){
+					for(i=num1;i>=num2;i--){
+						itens=document.createElement("li");
+       					itens.innerText = i;
+       					document.getElementById('lista').appendChild(itens);
+      				}
+				}else{
+					for(i=num1; i<=num2; i++){
+			        itens = document.createElement("li");
+			        itens.innerText = i;
+			        document.getElementById('lista').appendChild(itens);
+      				}
+    			}
+			}
+			//exercicio 4
+			document.vetorXY.addEventListener("submit", printT);
+  			function printT(eventoE4){
+			    eventoE4.preventDefault();
+			    var x = [document.vetorXY.x1.value, document.vetorXY.x2.value, document.vetorXY.x3.value];
+			    var y = [document.vetorXY.y1.value, document.vetorXY.y2.value, document.vetorXY.y3.value];
+			    //criando a tabela
+			    var tabelaXY = document.createElement("table");
+			    tabelaXY.setAttribute("id", "tabelaXY");
+			    tabelaXY.setAttribute("border", "1");
+			    document.body.appendChild(tabelaXY);
+			    //imprimindo a tabela, mas sem os valores
+				for(i=1; i<=2; i++){
+				    var linhaTabela = document.createElement("tr");
+				    linhaTabela.setAttribute("id", "lin"+i);
+				    document.getElementById('tabelaXY').appendChild(linhaTabela);
+				    if(i == 1){
+				        for(j=0; j<=2; j++){
+				            var dataTabela = document.createElement("td");
+				            dataTabela.innerText = x[j];
+				            document.getElementById('lin'+i).appendChild(dataTabela);
+				          }
+				   }else{
+					    for(j=0; j<=2; j++){
+						var dataTabela = document.createElement("td");
+						dataTabela.innerText = y[j];
+						document.getElementById('lin'+i).appendChild(dataTabela);
+					    }
+				    }
+				}
+		    }
+		    //exercicio 5
+		    document.matriz.addEventListener("submit", printM)
+      		function printM(eventoE5){
+	        	eventoE5.preventDefault();
+	        	var numM = parseInt(document.matriz.mTamanho.value);
+	        	var tabelaMatriz = document.createElement("table");
+	        	tabelaMatriz.setAttribute("id", "tabelaMatriz");
+	        	document.body.appendChild(tabelaMatriz);
+	        	var numerosTM = 1;
+	        	for(i=1; i<=numM; i++){
+		            var TMlinha = document.createElement("tr");
+		            TMlinha.setAttribute("id", "linhaMatriz"+i);
+		            document.getElementById('tabelaMatriz').appendChild(TMlinha);
+		            for(j=1; j<=numM; j++){
+			            var dataTM = document.createElement("td");
+			            dataTM.innerText = numerosTM;
+			            document.getElementById('linhaMatriz'+i).appendChild(dataTM);
+			            numerosTM++;
+		            }
+	        	}
+      		}
+
+		</script>
+	</body>
+</html>

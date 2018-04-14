@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Lista 5</title>
+  <style>
+  </style>
+</head>
+<body>
+  <h2>Exercício 4</h2>
+  <form name="vetorXY">
+    <label>X: <input type="text" name="x1"/>
+              <input type="text" name="x2"/>
+              <input type="text" name="x3"/></label>
+    <p></p>
+    <label>Y: <input type="text" name="y1"/>
+              <input type="text" name="y2"/>
+              <input type="text" name="y3"/></label>
+    <input type="submit" name="printT"/>
+  </form>
+
+  <script>
+  // Exercício 4
+  document.vetorXY.addEventListener("submit", printT);
+  function printT(event3){
+      event3.preventDefault();
+      var x = [document.vetorXY.x1.value, document.vetorXY.x2.value, document.vetorXY.x3.value];
+      var y = [document.vetorXY.y1.value, document.vetorXY.y2.value, document.vetorXY.y3.value];
+      var tabelaXY = document.createElement("table");
+      tabelaXY.setAttribute("id", "tabelaXY");
+      tabelaXY.setAttribute("border", "1");
+      document.body.appendChild(tabelaXY);
+      for(i=1; i<=2; i++){
+        var linhaTabela = document.createElement("tr");
+        linhaTabela.setAttribute("id", "lin"+i);
+        document.getElementById('tabelaXY').appendChild(linhaTabela);
+        if(i == 1){
+          for(j=0; j<=2; j++){
+            var dataTabela = document.createElement("td");
+            dataTabela.innerText = x[j];
+            document.getElementById('lin'+i).appendChild(dataTabela);
+          }
+        }else{
+          for(j=0; j<=2; j++){
+            var dataTabela = document.createElement("td");
+            dataTabela.innerText = y[j];
+            document.getElementById('lin'+i).appendChild(dataTabela);
+          }
+        }
+      }
+    }
+   
+  </script>
+</body>
+</html>

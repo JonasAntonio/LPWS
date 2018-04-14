@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />	
+		<title>Botão Subtração</title>
+	</head>
+	<body>
+		<h1>Botão de Subtração</h1>
+		<button id="sub">-</button>
+		<var id="valor">0</var>
+		<script>
+			var botaoSub = document.getElementById("sub");
+			var variavel = document.getElementById("valor");
+			botaoSub = addEventListener("click", function (){
+				variavel.innerText = parseInt(variavel.innerText)-1;
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />	
+		<title>Botão Soma</title>
+	</head>
+	<body>
+		<h1>Botão de soma</h1>
+		<button id="soma">+</button>
+		<var id="valor">0</var>
+		<script>
+			var botaoSoma = document.getElementById("soma");
+			var variavel = document.getElementById("valor");
+			botaoSoma = addEventListener("click", function (){
+				variavel.innerText = parseInt(variavel.innerText)+1;
+			});
+		</script>
+	</body>
+</html>

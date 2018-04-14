@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <style>
+  </style>
+</head>
+<body>
+  <h2>1.</h2>
+  <form name="calcSalario">
+    <label>Salário: <input type="number" name="salario" placeholder="Digite o salário aqui"/></label>
+    <label>Reajuste: <input type="number" name="Rsalario" placeholder="Digite o aumento"/>%</label>
+    <input type="submit" name="calcularS"/>
+  </form>
+
+  <h2>2.</h2>
+  <form name="alunoNotas">
+    <label>Provas: <input type="number" name="p1" placeholder="Nota da primeira prova"/><input type="number" name="p2" placeholder="Nota da segunda prova"/><input type="number" name="p3" placeholder="Nota da terceira prova"/></label>
+    <p></p>
+    <label>Trabalho: <input type="number" name="t1" placeholder="Nota do trabalho"/></label>
+    <label>Faltas: <input type="number" name="faltas" placeholder="Número de faltas"/></label>
+    <input type="submit" name="aprovacao"/>
+  </form>
+
+  <h2>3.</h2>
+  <form name="listaUL">
+    <label>Número Inicial: <input type="number" name="n1"/></label>
+    <label>Número Final: <input type="number" name="n2"/></label>
+    <input type="submit" name="printUL">
+  </form>
+
+  <h2>4.</h2>
+  <form name="vetorXY">
+    <label>X: <input type="text" name="x1"/>
+              <input type="text" name="x2"/>
+              <input type="text" name="x3"/></label>
+    <p></p>
+    <label>Y: <input type="text" name="y1"/>
+              <input type="text" name="y2"/>
+              <input type="text" name="y3"/></label>
+    <input type="submit" name="printT"/>
+  </form>
+
+  <h2>5.</h2>
+  <form name="matriz">
+    <label>Tamanho da Matriz: <input type="number" name="mTamanho"/></label>
+    <input type="submit" name="printM"/>
+  </form>
+
+  <script>
+  // Exercício 1
+  document.calcSalario.addEventListener("submit", calcularS);
+  function calcularS(event){
+    event.preventDefault();
+    var s = parseInt(document.calcSalario.salario.value);
+    var r = parseInt(document.calcSalario.Rsalario.value);
+    var nSalario = document.createElement("p");
+    nSalario.innerText = ((s * r) / 100) + s;
+    document.body.appendChild(nSalario);
+  }
+  // Exercício 2
+  document.alunoNotas.addEventListener("submit", aprovacao);
+  function aprovacao(event1){
+    event1.preventDefault();
+    var prova1 = parseInt(document.alunoNotas.p1.value);
+    var prova2 = parseInt(document.alunoNotas.p2.value);
+    var prova3 = parseInt(document.alunoNotas.p3.value);
+    var trab = parseInt(document.alunoNotas.t1.value);
+    var faltas = parseInt(document.alunoNotas.faltas.value);
+    var resul = document.createElement("p");
+    if(faltas > 15){
+      resul.innerText = "REPROVADO";
+    }else if((prova1 + prova2 + prova3 + trab / 4) < 60 && faltas < 15){
+      resul.innerText = "SUBSTITUTIVA";
+    }else if((prova1 + prova2 + prova3 + trab / 4) >= 60 && faltas < 15){
+      resul.innerText = "APROVADO";
+    }
+    document.body.appendChild(resul);
+  }
+  // Exercício 3
+  document.listaUL.addEventListener("submit", printUL);
+  function printUL(event2){
+    event2.preventDefault();
+    var num1 = parseInt(document.listaUL.n1.value);
+    var num2 = parseInt(document.listaUL.n2.value);
+    var lst = document.createElement("ul");
+    lst.setAttribute("id", "lista");
+    document.body.appendChild(lst);
+    var itens;
+    if(num1>num2){
+      for(i=num1; i>=num2; i--){
+        itens = document.createElement("li");
+        itens.innerText = i;
+        document.getElementById('lista').appendChild(itens);
+      }
+    }else{
+      for(i=num1; i<=num2; i++){
+        itens = document.createElement("li");
+        itens.innerText = i;
+        document.getElementById('lista').appendChild(itens);
+      }
+    }
+    }
+  // Exercício 4
+  document.vetorXY.addEventListener("submit", printT);
+  function printT(event3){
+      event3.preventDefault();
+      var x = [document.vetorXY.x1.value, document.vetorXY.x2.value, document.vetorXY.x3.value];
+      var y = [document.vetorXY.y1.value, document.vetorXY.y2.value, document.vetorXY.y3.value];
+      var tabelaXY = document.createElement("table");
+      tabelaXY.setAttribute("id", "tabelaXY");
+      tabelaXY.setAttribute("border", "1");
+      document.body.appendChild(tabelaXY);
+      for(i=1; i<=2; i++){
+        var linhaTabela = document.createElement("tr");
+        linhaTabela.setAttribute("id", "lin"+i);
+        document.getElementById('tabelaXY').appendChild(linhaTabela);
+        if(i == 1){
+          for(j=0; j<=2; j++){
+            var dataTabela = document.createElement("td");
+            dataTabela.innerText = x[j];
+            document.getElementById('lin'+i).appendChild(dataTabela);
+          }
+        }else{
+          for(j=0; j<=2; j++){
+            var dataTabela = document.createElement("td");
+            dataTabela.innerText = y[j];
+            document.getElementById('lin'+i).appendChild(dataTabela);
+          }
+        }
+      }
+    }
+    // Exercício 5
+    document.matriz.addEventListener("submit", printM)
+      function printM(event4){
+        event4.preventDefault();
+        var numM = parseInt(document.matriz.mTamanho.value);
+        var tabelaMatriz = document.createElement("table");
+        tabelaMatriz.setAttribute("id", "tabelaMatriz");
+        document.body.appendChild(tabelaMatriz);
+        var numerosTM = 1;
+        for(i=1; i<=numM; i++){
+            var TMlinha = document.createElement("tr");
+            TMlinha.setAttribute("id", "linhaMatriz"+i);
+            document.getElementById('tabelaMatriz').appendChild(TMlinha);
+            for(j=1; j<=numM; j++){
+              var dataTM = document.createElement("td");
+              dataTM.innerText = numerosTM;
+              document.getElementById('linhaMatriz'+i).appendChild(dataTM);
+              numerosTM++;
+            }
+        }
+      }
+  </script>
+</body>
+</html>
